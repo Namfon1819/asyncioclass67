@@ -28,3 +28,11 @@ if __name__== "__main__":
 #10:39:55: Main : wait for the thread to finish
 #10:39:55: Main : all done
 #10:39:57: Thread 1: finishing
+
+#ถ้าเอา comment บรรทัดที่ 21 ออกผลลัพธ์จะได้เป็นแบบนี้แทน
+#11:18:07: Main : before creating thread
+#11:18:07: Main : before running thread
+#11:18:07: Thread 1: starting
+#11:18:07: Main : wait for the thread to finish
+#11:18:09: Thread 1: finishing
+#11:18:09: Main : all done
