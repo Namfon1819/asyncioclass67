@@ -8,10 +8,20 @@ def thread_function(name):
     time.sleep(2)
     logging.info("Thread %s: finishing", name)
 
-if __name__ == " main ":
+if __name__ == "__main__":
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(format=format, level=logging.INFO,
-                        datefmt="%H: %M: %S")
+                        datefmt="%H:%M:%S")
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
         executor.map(thread_function, range(3))
+
+
+
+#ผลลัพธ์ที่ได้
+#10:58:22: Thread 0: starting
+#10:58:22: Thread 1: starting
+#10:58:22: Thread 2: starting
+#10:58:24: Thread 1: finishing
+#10:58:24: Thread 0: finishing
+#10:58:24: Thread 2: finishing
