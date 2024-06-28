@@ -6,17 +6,13 @@ from threading import Thread
 def task(sleep_time, message):
     # block for a moment
     sleep(sleep_time)
-    #display a message
     print(f'{ctime()} {message}')
 
 # create a thread
 thread = Thread(target=task, args=(1.5, 'New message from another thread'))
 # run the thread
 thread.start()
-#wait for the thread to finish
+# wait for the thread to finish
 print(f'{ctime()} Waiting for the thread...')
 thread.join()
 
-#ผลลัพธ์ที่ได้คือบรรทัดที่ 17 จะเห็นค่าก่อน
-#Fri Jun 21 10:15:05 2024 Waiting for the thread...
-#Fri Jun 21 10:15:07 2024 New message from another thread
