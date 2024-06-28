@@ -21,3 +21,7 @@ async def fetch_hacker_news():
         print(f"{ctime()} {news2['title']}")
 
 asyncio. run(fetch_hacker_news())
+
+#ผลลัพธ์
+#Fri Jun 28 11:15:18 2024 Privacy is the most important concept of our time
+#Fri Jun 28 11:15:18 2024 Reasons Revealed for the Brain’s Elastic Sense of Time
