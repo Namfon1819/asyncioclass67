@@ -1,16 +1,14 @@
 # Basic Synchronization Using Lock
-import concurrent.futures
+import concurrent. futures
 import logging
 import threading
 import time
-
 class FakeDatabase:
     def __init__(self):
         self.value = 0
         self._lock = threading.Lock()
-    
     def locked_update(self, name):
-        logging.info("Thread %s: starting update", name)
+        logging. info("Thread %s: starting update", name)
         logging.debug("Thread %s about to lock", name)
         with self._lock:
             logging.debug("Thread %s has lock", name)
@@ -20,34 +18,33 @@ class FakeDatabase:
             self.value = local_copy
             logging.debug("Thread %s about to release lock", name)
         logging.debug("Thread %s after release", name)
+        # write by spa logging.debug("Thread %s after release", name)
         logging. info("Thread %s: finishing update", name)
-
-if __name__=="__main__":
+if __name__ == "__main__":
     format = "%(asctime)s: %(message)s"
-    logging.basicConfig(format=format, level=logging.DEBUG, datefmt="%H:%M:%S")
-        #logging.getLogger().setLevel(logging.DEBUG)
-
+    logging. basicConfig(format=format, level=logging.DEBUG, datefmt="%H:%M:%S" )
+    # logging. getLogger().setLevel( logging. DEBUG)
     database = FakeDatabase()
-    logging.info(
-        "Testing locked update. Starting value is %d.", database.value
+    logging. info(
+    "Testing locked update. Starting value is %d.", database.value
     )
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+    with concurrent. futures. ThreadPoolExecutor(max_workers=2) as executor:
         for index in range(2):
-            executor.submit(database.locked_update,index)
-    logging.info("Testing locked update. Ending value is %d.", database.value)
+            executor.submit (database. locked_update, index)
+    logging. info("Testing locked update. Ending value is %d.", database.value)
 
-#ผลลัพธ์ที่ได้
-#11:11:48: Testing locked update. Starting value is 0.
-#11:11:48: Thread 0: starting update
-#11:11:48: Thread 1: starting update
-#11:11:48: Thread 0 about to lock
-#11:11:48: Thread 1 about to lock
-#11:11:48: Thread 0 has lock
-#11:11:48: Thread 0 about to release lock
-#11:11:48: Thread 0 after release
-#11:11:48: Thread 1 has lock
-#11:11:48: Thread 0: finishing update
-#11:11:48: Thread 1 about to release lock
-#11:11:48: Thread 1 after release
-#11:11:48: Thread 1: finishing update
-#11:11:48: Testing locked update. Ending value is 2.
+    #ผลลัพธ์ที่ได้
+#10:24:18: Testing locked update. Starting value is 0.
+#10:24:18: Thread 0: starting update
+#10:24:18: Thread 0 about to lock
+#10:24:18: Thread 1: starting update
+#10:24:18: Thread 0 has lock
+#10:24:18: Thread 1 about to lock
+#10:24:18: Thread 0 about to release lock
+#10:24:18: Thread 0 after release
+#10:24:18: Thread 1 has lock
+#10:24:18: Thread 0: finishing update
+#10:24:18: Thread 1 about to release lock
+#10:24:18: Thread 1 after release
+#10:24:18: Thread 1: finishing update
+#10:24:18: Testing locked update. Ending value is 2.

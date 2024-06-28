@@ -17,3 +17,7 @@ thread.start()
 print(f'{ctime()} Waiting for the thread...')
 thread.join()
 
+#ผลลัพธ์
+#Fri Jun 28 10:30:01 2024 Waiting for the thread...
+#Fri Jun 28 10:30:02 2024 This is from another thread
+

@@ -23,3 +23,8 @@ thread.join()
 #get the value returned from run
 value = thread.value
 print(f'{ctime()} Got: {value}')
+
+#ผลลัพธ์
+#Fri Jun 28 10:27:57 2024 Wait for the thread to finish
+#Fri Jun 28 10:27:58 2024 this is from another thread
+#Fri Jun 28 10:27:58 2024 Got: 99
