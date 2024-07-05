@@ -23,3 +23,12 @@ def main():
 
 
 main()
+
+##ผลลัพธ์
+#coffee: prepare ingridients
+#coffee: waiting...
+#coffee: ready
+#eggs: prepare ingridients
+#eggs: frying...
+#eggs: ready
+#breakfast is ready in 10.006637573242188 min
