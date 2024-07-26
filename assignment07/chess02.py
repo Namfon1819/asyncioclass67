@@ -16,14 +16,14 @@ async def main(x):
         time.sleep(my_compute_time)
         print(f"BOARD-{x+1} {i+1} Judit made a move")
         await asyncio.sleep(opponent_compute_time)
-    print(f"BOARD-{x+1} - >>>>>>>>>>>> Finished move in {round(time.perf_counter()- board_start_time)}")
+    print(f"BOARD-{x+1} - >>>>>>>>>>>> Finished move in {round(time.perf_counter()- board_start_time)} seconds")
     return round(time.perf_counter() - board_start_time)
 
 async def async_io():
     #Again same structure as in async_io.py
     tasks = []
     for i in range(opponents):
-        task +=[main(i)]
+        tasks +=[main(i)]
     await asyncio.gather(*tasks)
     print(f"Board exhibition finished in {round(time.perf_counter() - start_time)} seconds.")
 
